@@ -69,38 +69,55 @@
 </style>
 <body>
     <div class="container">
-        <input type="text" placeholder="0" class="input-text" id="input-text" name="display"/> 
+        <input type="text" placeholder="0" class="input-text" id="input-text" /> 
         <div class="btn-container">
               <div class="btn-colum">
-                <button id="Ac-btn"  class="btn">AC </button>
-                <button id="7-btn"  class="btn">7</button>
-                <button id="4-btn" class="btn">4</button>
-                <button id="1-btn" class="btn">1</button>
-                <button id="0-btn" class="btn">0</button>
+                <button  onclick="AllClear() " class="btn">AC </button>
+                <button  onclick="Display('7')" class="btn">7</button>
+                <button  onclick="Display('4')" class="btn">4</button>
+                <button  onclick="Display('1')" class="btn">1</button>
+                <button  onclick="Display('0')" class="btn">0</button>
               </div>
               <div class="btn-colum">
-                <button id="m+-btn" class="btn">M+</button>
-                <button id="8-btn"class="btn">8</button>
-                <button id="5-btn"class="btn">5</button>
-                <button id="2-btn"class="btn">2</button>
-                <button id=".-btn"class="btn">.</button>
+                <button  onclick="Delete()" class="btn">DEL</button>
+                <button  onclick="Display('8')" class="btn">8</button>
+                <button  onclick="Display('5')" class="btn">5</button>
+                <button  onclick="Display('2')" class="btn">2</button>
+                <button onclick="Display('.')" class="btn">.</button>
               </div>
               <div class="btn-colum">
-                <button id="/-btn" class="btn">/</button>
-                <button id="9-btn" class="btn">9</button>
-                <button id="6-btn" class="btn">6</button>
-                <button id="3-btn"  class="btn">3</button>
-                <button id="%-btn"  class="btn">%</button>
+                <button onclick="Display('/')" class="btn">/</button>
+                <button  onclick="Display('9')" class="btn">9</button>
+                <button  onclick="Display('6')" class="btn">6</button>
+                <button  onclick="Display('3')" class="btn">3</button>
+                <button onclick="Display('%')" class="btn">%</button>
               </div>
               <div class="btn-colum">
-                <button id="*-btn" class="btn">*</button>
-                <button id="+-btn" >+</button>
-                <button id="--btn" class="btn">-</button>
-                <button id="=-btn" class="btn btn-equalto">=</button>
+                <button onclick="Display('*')" class="btn">*</button>
+                <button  onclick="Display('+')"  class="btn" >+</button>
+                <button  onclick="Display('-')"  class="btn">-</button>
+                <button  onclick="calculate()" class="btn btn-equalto">=</button>
               </div>
         </div>
     </div>
     <script>
+      let OutputScreen = document.getElementById("input-text");
+
+      function Display(num){
+              OutputScreen.value += num ;
+      }
+    
+      function calculate(){
+           OutputScreen.value = eval(OutputScreen.value)
+      }
+
+      function AllClear(){
+           OutputScreen.value = "";
+      }
+
+      function Delete(){
+           OutputScreen.value = OutputScreen.value.slice(0,-1);
+      }
     </script>
 </body>
 </html>
